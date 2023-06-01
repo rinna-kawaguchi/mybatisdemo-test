@@ -217,7 +217,7 @@ public class IntegrationTest {
     @Test
     @DataSet(value = "names.yml")
     @Transactional
-    void 存在しないIDをして削除しようとした場合に例外がスローされステータスコード404が返されること() throws Exception {
+    void 存在しないIDを指定して削除しようとした場合に例外がスローされステータスコード404が返されること() throws Exception {
         String response = mockMvc.perform(MockMvcRequestBuilders.delete("/names/4"))
                 .andExpect(MockMvcResultMatchers.status().isNotFound())
                 .andReturn().getResponse().getContentAsString(StandardCharsets.UTF_8);
